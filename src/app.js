@@ -1,6 +1,6 @@
 "use strict";
 // 型
-// const: 常に値で初期化
+// const: 常に値で初期化する
 // let:   初期化せずに使える
 // 
 // 未定義：null 
@@ -80,3 +80,11 @@ function tooManyScoops(dessert) {
     }
 }
 console.log(tooManyScoops({ flavor: 'vanilla', scoops: 5, sauce: 'caramel' }));
+function mappingHTML() {
+    var npb_supervisor = { Giants: "たつのり", Carp: "ささおか" };
+    for (var sv in npb_supervisor) {
+        alert(sv);
+    }
+    window.close();
+}
+mappingHTML();
