@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="jp" dir="ltr">
 <head>
-   <meta charset="UTF-8">
+   <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
    <title>Test JavaScript</title>
+   <link rel="stylesheet" href="reset.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
-<body>
-   <h1>Test JavaScript</h1>
-   <p id="date"></p>
-   <p>This page calls the script module01.js and is used for testing.</p>
 
-   <div id="npb"></div>
+<body class="fixed-bg">
+   <header>
+      <h1>Test JavaScript</h1>
+      <p id="date"></p>
+      <p>This page calls the script module01.js and is used for testing.</p>
+   </header>
+
+
+   <section>
+      <div id="npb"></div>
+
+   </section>
 
    <script src="./app.js"></script>
 </body>

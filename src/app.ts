@@ -131,7 +131,76 @@ function mappingHTML() {
     for(var sv in npb_supervisor) {
         alert(sv);
     }
-    window.close();
+    // ブラウザ(のタブ)を閉じる
+    // window.close();
 }
 
 mappingHTML();
+
+// 可変長引数
+const func = (foo: string, ...bar: number[]) => bar;
+console.log(func("1",2,3));
+
+// 関数引数の省略形とデフォルト値
+let addThreeNumbers = (x: number, y?: number, z=100): number => {
+    if((y === undefined)) {
+        return x + z;
+    } else {
+        return x + y + z;
+    }
+}
+let total = addThreeNumbers(10);
+console.log(total);
+
+// 
+// 関数の使い方
+// こういう使い方を覚えていきたい
+// (参考) TypeScript を使用して型指定された関数を開発する
+// https://docs.microsoft.com/ja-jp/learn/modules/typescript-develop-typed-functions/
+// 
+function makeArray(items: number, sortOrder: "ascending" | "descending"): number[] {
+    let randomNumbers: number[] = [];
+    let nextNumber: number;
+
+    for (let counter=0; counter<items; counter++) {
+        nextNumber = Math.ceil(Math.random() * (100 - 1));
+        if (randomNumbers.indexOf(nextNumber) === -1) {
+            randomNumbers.push(nextNumber);
+        } else {
+            counter--;
+        }
+    }
+
+    if (sortOrder === "ascending") {
+        return randomNumbers.sort(sortAscending);
+    } else {
+        return randomNumbers.sort(sortDescending);
+    }
+}
+
+type compareFunctionType = (a: number, b:number) => number;
+
+let sortDescending: compareFunctionType = (a, b) => {
+    if (a > b) {
+        return -1;
+    } else if (b > a) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+let sortAscending: compareFunctionType = (a, b) => {
+    if (a > b) {
+        return 1;
+    } else if (b > a) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+let myArray1 = makeArray(12, "ascending");
+let myArray2 = makeArray(8, "descending");
+console.log(myArray1);
+console.log(myArray2);
